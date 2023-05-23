@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+
+    <h1>Профиль</h1>
+
+    <ul>
+        <li>Имя пользователя: <b>{{ user.userIdentifier }}</b></li>
+        <li>Почта: <b>{{ user.email }}</b></li>
+    </ul>
+
+    <b><a href="{{ path('user_edit') }}">Редкатировать профиль</a></b>
+
+{% endblock %}

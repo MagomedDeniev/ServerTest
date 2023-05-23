@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+
+    <h1>Редактирование профиля</h1>
+
+    {{ form_start(form) }}
+
+        {{ form_row(form.username) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.first_name) }}
+        {{ form_row(form.last_name) }}
+        {{ form_row(form.middle_name) }}
+        {{ form_row(form.date_of_birth) }}
+        {{ form_row(form.gender) }}
+
+        <div class="mb-3">
+            {{ form_label(form.phone) }}
+
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">+7</span>
+                {{ form_widget(form.phone) }}
+            </div>
+        </div>
+
+        <button class="btn btn-primary">Сохранить</button>
+        <a class="btn btn-light" href="{{ path('user_profile', {'username' : user.userIdentifier}) }}">Отмена</a>
+
+    {{ form_end(form) }}
+
+{% endblock %}

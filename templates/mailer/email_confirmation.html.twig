@@ -1,0 +1,31 @@
+{% extends 'mailer/base.html.twig' %}
+
+{% block body %}
+
+    Здравствуйте <b>{{ user.username }}</b>,
+
+    <br><br>
+
+    Некоторые функции платформы TestServer ограничены, пока вы не подтвердите свою электронную почту
+
+    <br><br>
+
+    Для подтверждения нажмите на следующую кнопку:
+
+    <br><br>
+
+    <table>
+        <tbody>
+            <tr>
+                <td class="btn btn-blue">
+                    <a href="{{ signedUrl|raw }}">Подтвердить почту</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br>
+
+    Срок действия этой ссылки истекает через {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+
+{% endblock %}
